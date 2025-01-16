@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 type SettingsContextType = {
   month: number,
@@ -8,6 +8,9 @@ type SettingsContextType = {
   height: number,
   bottomMargin: number,
   artist: string,
+  headerFont: string,
+  bodyFont: string,
+  update: Function,
 };
 
 const defaultMonth = 1;
@@ -17,13 +20,13 @@ const defaultArtist = 'Noritake';
 const defaults = {
   month: defaultMonth,
   year: 2025,
-  imageProportion: 0.37,
+  imageProportion: 0.6,
   width: 3295,   // 11x17
   height: 5102,  // 11x17
   bottomMargin: 100, // 400?
   artist: defaultArtist,
-  headerFont: 'Spectral',
-  bodyFont: 'Spectral',
+  headerFont: 'Poppins',
+  bodyFont: 'Poppins',
   type: {
     header: {
       size: '3em',
@@ -46,15 +49,21 @@ const defaults = {
       style: '',
     },
   },
+  update: () => {},
 };
 
 const SettingsContext = createContext<SettingsContextType>({
-    ...defaults,
+  ...defaults,
 });
 
 export const SettingsProvider = (props: { children: React.ReactNode }) => {
 
-  const state = defaults;
+  const [settings, update] = useState(defaults);
+
+  const state = {
+    ...settings,
+    update,
+  }
 
   return (
     <SettingsContext.Provider value={state}>

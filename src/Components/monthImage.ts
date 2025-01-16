@@ -2,6 +2,12 @@
 import SeongryulJan from '../assets/Seongryul/Jan.jpg';
 import SeongryulFeb from '../assets/Seongryul/Feb.jpg';
 import SeongryulMar from '../assets/Seongryul/Mar.jpg';
+import SeongryulApr from '../assets/Seongryul/Apr.jpg';
+
+import NoritakeJan from '../assets/Noritake/Jan.jpg';
+import NoritakeFeb from '../assets/Noritake/Feb.jpg';
+import NoritakeMar from '../assets/Noritake/Mar.jpg';
+import NoritakeApr from '../assets/Noritake/Apr.jpg';
 // import January from '../assets/January.jpg';
 // import February from '../assets/February.jpg';
 // import March from '../assets/March.jpg';
@@ -20,6 +26,8 @@ export default {
     SeongryulJan,
     SeongryulFeb,
     SeongryulMar,
+    SeongryulApr,
+
     // SeongryulApr,
     // SeongryulMay,
     // SeongryulJun,
@@ -30,6 +38,13 @@ export default {
     // SeongryulNov,
     // SeongryulDec,
   ],
+  Noritake: [
+    NoritakeJan,
+    NoritakeFeb,
+    NoritakeMar,
+    NoritakeApr,
+  ],
+
   // January,
   // February,
   // March,

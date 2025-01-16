@@ -56,14 +56,13 @@ export const populateMonth = (year, month, artist) => {
         dates: w,
       })),
     name: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][month],
+    n: month,
     image: monthImage[artist][month],
   };
 };
 
-export const useMonth = () => {
-  const { year, month, artist } = useSettings();
+export const useMonth = (year: number, month: number) => {
+  const { artist } = useSettings();
 
-  return {
-    month: populateMonth(year, month, artist)
-  };
+  return populateMonth(year, month, artist);
 };
