@@ -13,5 +13,5 @@ Well, I've recently found wall calendars to be a much more useful way to track a
 ## How it's going so far 
 
 ![Screenshot 2025-01-15 at 4 49 33 PM](https://github.com/user-attachments/assets/2f7b0240-9c5a-4bb4-a2ca-85bca5178a1b)
-![Screenshot 2025-01-15 at 4 49 15 PM](https://github.com/user-attachments/assets/14f996ea-521d-46e0-8120-3191f5cf7684)
+![Screenshot 2025-01-15 at 4 55 34 PM](https://github.com/user-attachments/assets/43976c20-44dc-42f2-bf59-09ba3089bb26)
 ![render](https://github.com/user-attachments/assets/4a4eb4a7-07f3-4df3-b71f-30aa01a6c600)
