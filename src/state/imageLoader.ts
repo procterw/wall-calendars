@@ -8,6 +8,11 @@ import NoritakeJan from '../assets/Noritake/Jan.jpg';
 import NoritakeFeb from '../assets/Noritake/Feb.jpg';
 import NoritakeMar from '../assets/Noritake/Mar.jpg';
 import NoritakeApr from '../assets/Noritake/Apr.jpg';
+
+import GambrellJan from '../assets/Gambrell/Jan.jpg';
+import GambrellFeb from '../assets/Gambrell/Feb.jpg';
+import GambrellMar from '../assets/Gambrell/Mar.jpg';
+import GambrellApr from '../assets/Gambrell/Apr.jpg';
 // import January from '../assets/January.jpg';
 // import February from '../assets/February.jpg';
 // import March from '../assets/March.jpg';
@@ -43,6 +48,12 @@ export default {
     NoritakeFeb,
     NoritakeMar,
     NoritakeApr,
+  ],
+  Gambrell: [
+    GambrellJan,
+    GambrellFeb,
+    GambrellMar,
+    GambrellApr,
   ],
 
   // January,

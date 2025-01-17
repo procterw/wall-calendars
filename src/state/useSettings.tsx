@@ -10,12 +10,19 @@ type SettingsContextType = {
   artist: string,
   headerFont: string,
   bodyFont: string,
+  scale: number,
+  fontScale: string,
+  dateAlignment: string,
+  imagePositionX: string,
+  imagePositionY: string,
+  customEvents: Array<{ date: string, event: string }>,
+  customEventString: string,
   update: Function,
 };
 
 const defaultMonth = 1;
 // const defaultArtist = 'Seongryul';
-const defaultArtist = 'Noritake';
+const defaultArtist = 'Gambrell';
 
 const defaults = {
   month: defaultMonth,
@@ -23,10 +30,17 @@ const defaults = {
   imageProportion: 0.6,
   width: 3295,   // 11x17
   height: 5102,  // 11x17
-  bottomMargin: 100, // 400?
+  bottomMargin: 50, // small
   artist: defaultArtist,
   headerFont: 'Poppins',
   bodyFont: 'Poppins',
+  scale: 0.15,
+  fontScale: '3em',
+  dateAlignment: 'left',
+  imagePositionX: 'center',
+  imagePositionY: 'center',
+  customEvents: [],
+  customEventString: '',
   type: {
     header: {
       size: '3em',

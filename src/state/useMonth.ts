@@ -1,7 +1,8 @@
 
 import Holidays from 'date-holidays';
 import { useSettings } from "./useSettings";
-import monthImage from '../Components/monthImage';
+import imageLoader from './imageLoader';
+import { useEffect, useState } from 'react';
 
 export const hd = new Holidays('US');
 // https://gist.github.com/markthiessen/3883242
@@ -45,8 +46,6 @@ export const populateMonth = (year, month, artist) => {
     dayOfWeekCounter = (dayOfWeekCounter + 1) % 7;
   }
 
-  console.log(monthImage, artist, month)
-
   return {
     weeks: weeks
       .filter((w) => !!w.length)
@@ -57,12 +56,17 @@ export const populateMonth = (year, month, artist) => {
       })),
     name: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][month],
     n: month,
-    image: monthImage[artist][month],
+    image: imageLoader[artist][month],
   };
 };
 
 export const useMonth = (year: number, month: number) => {
   const { artist } = useSettings();
+  const [_m, setMonth] = useState(populateMonth(year, month, artist))
 
-  return populateMonth(year, month, artist);
+  useEffect(() => {
+    setMonth(populateMonth(year, month, artist));
+  }, [artist]); // AND CUSTOM DATES
+
+  return _m;
 };

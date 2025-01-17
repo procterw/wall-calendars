@@ -1,8 +1,8 @@
 import { useSettings } from '../state/useSettings';
 import { Palette } from './Palette';
 import { WeekLabels } from './WeekLabels';
-import { ExportButton } from './ExportButton';
 import { useMonth } from '../state/useMonth';
+import { Date } from './Date';
 
 export const Month = (props) => {
 
@@ -17,8 +17,6 @@ export const Month = (props) => {
   const imageHeight = height * imageProportion; // 600?
   const calendarHeight = height - imageHeight - bottomMargin;
 
-  const scale = 0.14;
-
   return (
     <div
       style={{
@@ -28,35 +26,29 @@ export const Month = (props) => {
       }}
     >
 
-      {/* <ExportButton month={month} /> */}
-
       <div style={{
-        transform: `scale(${scale}, ${scale})`,
+        transform: `scale(${settings.scale}, ${settings.scale})`,
         transformOrigin: 'top left',
-        width: width * scale,
-        height: height * scale,
+        width: width * settings.scale,
+        height: height * settings.scale,
         // border: '5px solid black',
       }}>
         
       <div id={`calendar-${month.name}`} style={{
         width: width,
         height: height,
-        fontSize: '3em',
+        fontSize: settings.fontScale,
         boxShadow: '0 0 0.4rem 0.2rem rgba(0,0,0,0.15)',
         background: 'white',
         display: 'flex',
         position: 'absolute',
         flexDirection: 'column',
-        // backgroundImage: `url(${monthImage[month.name]})`,
-        // backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'cover' 
       }}>
         <img src={month.image}
            width={width} height={imageHeight}
            style={{
             objectFit: 'cover',
-            // objectPosition: 'top',
-            // position: 'absolute',
+            objectPosition: `${settings.imagePositionX} ${settings.imagePositionY}`,
            }}
         />
 
@@ -64,7 +56,6 @@ export const Month = (props) => {
           position: 'absolute',
           color: 'white',
           fontSize: '3em',
-          // height: '100%',
           textAlign: 'center',
           fontWeight: 700,
           letterSpacing: 70,
@@ -99,48 +90,7 @@ export const Month = (props) => {
               }}
             >
               { week.dates.map((date) => (
-                <div
-                  style={{
-                    display: 'block',
-                    width: width / 7,
-                    // background: 'blue',
-                    marginLeft: date.dayOfMonth === 1
-                      ? (width / 7) * (7 - week.dates.length)
-                      : 0,
-                    // alignItems: 'flex-start',
-                    padding: '0.4rem 0.4rem',
-                    background: 'white',
-                  }}
-                >
-                  <div style={{
-                    // borderTop: '0.2rem solid #e1e1fd',
-                    borderTop: '0.2rem solid black',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    // background: date.isWeekend ? 'rgb(240, 239, 251)' : 'rgb(251, 249, 223)',
-                    height: '100%',
-                  }}>
-                    <span style={{
-                      fontSize: '1.1em',
-                      fontWeight: 600,
-                    }}>
-                      {date.dayOfMonth}
-                    </span>
-
-                    <div style={{ flexGrow: 1 }}/>
-
-                    { date.holidays.map(h => (
-                      <span
-                        style={{
-                          fontSize: '0.7em',
-                          fontStyle: 'italic'
-                        }}
-                      >
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div> // end day
+                <Date date={date} week={week} month={month} />
               ))}
             </div> // end week
           ))}
